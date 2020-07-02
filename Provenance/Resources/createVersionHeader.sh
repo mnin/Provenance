@@ -92,7 +92,7 @@ GIT=`xcrun -find git`
 if [ "command -v '$GIT'" ] ; then
     GIT_COMMIT_COUNT_RAW=`"${GIT}" rev-list --count HEAD`
     GIT_TAG=`"${GIT}" describe --tags --always --dirty`
-    GIT_DATE=`"${GIT}" log -1 --format="%cd" --date="local"`
+    GIT_DATE=`"${GIT}" log --no-show-signature -1 --format="%cd" --date="local"`
     GIT_BRANCH=`"${GIT}" branch | grep \* | cut -d ' ' -f2-`
     # Use this to bump the number by X
     GIT_COMMIT_COUNT=$(($GIT_COMMIT_COUNT_RAW+0))
